@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../style/style.css">
+</head>
+<body>
+	<div class="header">
+		<a href="../index.php" class="image_titre"><img src="img/titre.svg"></a>
+		<div class="bonjour">
+			<?PHP if(isset($_SESSION['username']) && ($_SESSION['username'] != "")) echo "<h2>Bienvenue $_SESSION[username]</h2>"; ?>
+		</div>
+		<ul class="menu">
+			<li><a href="index.php"><img src="../img/home.png"> Accueil </a></li>
+			<li><a href="boutique.php"><img src="../img/shop.png">Boutique</a></li>
+			<li><a href="panier.php"><img src="../img/panier.png">Panier</a></li>
+			<?php 
+				if (isset($_SESSION['username']) && $_SESSION['rangUser'] == 1){
+					require_once('includes/form/adm.html');					
+				}
+				if (isset($_SESSION['username'])) 
+					require_once('includes/form/deconnection.html');
+				else 
+					require_once('includes/form/connection.html'); 
+
+			?>
+		</ul>
+	</div>
+	<div class="content">
+	<?php
+	$URI = $_SERVER["REQUEST_URI"];
+	if ($URI == "/connection.php"){
+		require_once('connection.html');
+	} else if ($URI == "/inscription.php"){
+		require_once('includes/inscription.html');
+	} else if ($URI == "/boutique.php") {
+		require_once('includes/boutique.html');
+	} else if ($URI == "/panier.php"){
+		require_once('includes/panier.html');
+	} else if ($URI == "/monMagasin.php"){
+		require_once('includes/monMagasin.html');
+	} else if ($URI == "/adm.php"){
+		require_once('includes/admin.html');
+	} else if (explode("?", $URI)[0] == '/delElem.php') {
+		require_once('includes/form/delElem.html');
+	} else if (explode("?", $URI)[0] == '/buyItem.php') {
+		require_once('includes/form/buyItem.html');
+	} else {
+		require_once('includes/new.html');
+	}
+	?>
+	</div>
+	<?php require_once('footer.html'); ?>
+</body>	
+</html>

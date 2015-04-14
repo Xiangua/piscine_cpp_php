@@ -1,0 +1,74 @@
+body{
+	font-size:1.4vh;		
+	background-image: url(http://rpgmaker.net/media/content/users/7125/locker/mbpanel.jpg);
+}
+table{
+	width: 100%;
+}
+td{
+	width:4.8%;
+	text-align:center;
+}
+
+
+h1, h2{
+	text-align: center;
+}
+h2, h4, h5 {
+	margin-top: 2px;
+	padding-top: 2px;
+	margin-bottom: 2px;
+	padding-bottom: 2px;
+}
+h5 {
+	text-align: left;
+}
+h4{
+	text-align: right;
+}
+.metaux-al {
+	background-color:#BB0B0B;
+}
+.alcalino {
+	background-color:#F88E55;}
+.lanthanides {
+	background-color:#D473D4;
+}
+.actinides {
+	background-color:#FFE4C4;
+}
+.metaux-trans {
+	background-color:#FEBFD2;
+}
+.metaux-pauv {
+	background-color:#BABABA;}
+.metalloide {
+	background-color:#BBAE98;
+}
+.non-metaux {
+	background-color:#3A9D23;
+}
+.halogenes {
+	background-color:#FFE436;
+}
+.gaz {
+	background-color:#74D0F1;
+}
+.primordial {
+	border:2px solid black;
+}
+.des-elem {
+	border:2px dashed black;
+}
+.synt {
+	border:2px dotted black;
+}
+.neutral {
+	background-color:white;
+}
+.gaz-name {
+	color:red;
+}
+.liquide {
+	color:blue;
+}

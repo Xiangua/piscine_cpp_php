@@ -1,0 +1,95 @@
+<h2>page admin</h2>
+<h3>Gestion des Utilisateurs</h3>
+<div class="adminUser">
+	<?PHP 
+		$tabUser = array();
+		if ($f = fopen('/nfs/zfs-student-2/users/2013/folier/mamp/apps/rush00/htdocs/bdd/user.csv', 'r')){
+		 // if ($f = fopen('/Applications/MAMP/htdocs/bdd/user.csv', 'r')){
+			while (($buffer = fgets($f, 4096)) !== false) {
+				$user = explode(":", $buffer);
+				array_push($tabUser, $user);
+			}
+			$index = 0;
+			echo "<table class=\"user\"><tr><td>UserName</td><td>RangLevel</td><td>MagasinUser</td><td>suppression</td></tr>";
+			foreach($tabUser as $user){
+
+				if ($user[1]){
+					echo "<tr><td>$user[1]</td><td>$user[3]</td><td><a>lien vers list</a></td><td><a href=\"delElem.php?delElem=$user[1]&obj=user\"><img src=\"../img/delete.png\"></a></td></tr>";
+					$index++;
+				}
+			}
+			echo "</table>";
+		}
+		fclose($f);
+	?>
+</div>
+<h3>Gestion des protuits</h3>
+<div class="adminProduit">
+	<h4> stock d'Histoires</h4>
+	<?PHP 
+		$tabUser = array();
+		if ($f = fopen('/nfs/zfs-student-2/users/2013/folier/mamp/apps/rush00/htdocs/bdd/histoires.csv', 'r')){
+		// if ($f = fopen('/Applications/MAMP/htdocs/bdd/htdocs/bdd/produit.csv', 'r')){
+			while (($buffer = fgetcsv($f, 4096, ":")) !== false) {
+				array_push($tabUser, $buffer);
+			}
+			echo "<table class=\"user\"><tr><td>Nom</td><td>Prix</td><td>Quantite</td><td>Description</td><td>suppression</td></tr>";
+			foreach($tabUser as $user){
+					echo "<tr><td>$user[3]</td><td>$user[2]</td><td>$user[4]</td><td>$user[5]</td><td><a href=\"delElem.php?delElem=$user[0]&obj=produit&bdd=histoires\"><img src=\"../img/delete.png\"></a></td></tr>";
+			}
+			echo "</table>";
+		}
+		fclose($f);
+	?>
+	<br />
+	<h4> stock d'animaux</h4>
+	<?PHP 
+		$tabUser = array();
+		if ($f = fopen('/nfs/zfs-student-2/users/2013/folier/mamp/apps/rush00/htdocs/bdd/animaux.csv', 'r')){
+		// if ($f = fopen('/Applications/MAMP/htdocs/bdd/htdocs/bdd/produit.csv', 'r')){
+			while (($buffer = fgetcsv($f, 4096, ":")) !== false) {
+				array_push($tabUser, $buffer);
+			}
+			echo "<table class=\"user\"><tr><td>Nom</td><td>Prix</td><td>Quantite</td><td>Description</td><td>suppression</td></tr>";
+			foreach($tabUser as $user){
+					echo "<tr><td>$user[3]</td><td>$user[2]</td><td>$user[4]</td><td>$user[5]</td><td><a href=\"delElem.php?delElem=$user[0]&obj=produit&bdd=animaux\"><img src=\"../img/delete.png\"></a></td></tr>";
+			}
+			echo "</table>";
+		}
+		fclose($f);
+	?>
+	<br />
+	<h4> stock de reves</h4>
+	<?PHP 
+		$tabUser = array();
+		if ($f = fopen('/nfs/zfs-student-2/users/2013/folier/mamp/apps/rush00/htdocs/bdd/reves.csv', 'r')){
+		// if ($f = fopen('/Applications/MAMP/htdocs/bdd/htdocs/bdd/produit.csv', 'r')){
+			while (($buffer = fgetcsv($f, 4096, ":")) !== false) {
+				array_push($tabUser, $buffer);
+			}
+			echo "<table class=\"user\"><tr><td>Nom</td><td>Prix</td><td>Quantite</td><td>Description</td><td>suppression</td></tr>";
+			foreach($tabUser as $user){
+					echo "<tr><td>$user[3]</td><td>$user[2]</td><td>$user[4]</td><td>$user[5]</td><td><a href=\"delElem.php?delElem=$user[0]&obj=produit&bdd=reves\"><img src=\"../img/delete.png\"></a></td></tr>";
+			}
+			echo "</table>";
+		}
+		fclose($f);
+	?>
+	<br >
+	<h4>L'usine a sexe</h4>
+	<?PHP 
+		$tabUser = array();
+		if ($f = fopen('/nfs/zfs-student-2/users/2013/folier/mamp/apps/rush00/htdocs/bdd/sexe.csv', 'r')){
+		// if ($f = fopen('/Applications/MAMP/htdocs/bdd/htdocs/bdd/produit.csv', 'r')){
+			while (($buffer = fgetcsv($f, 4096, ":")) !== false) {
+				array_push($tabUser, $buffer);
+			}
+			echo "<table class=\"user\"><tr><td>Nom</td><td>Prix</td><td>Quantite</td><td>Description</td><td>suppression</td></tr>";
+			foreach($tabUser as $user){
+					echo "<tr><td>$user[3]</td><td>$user[2]</td><td>$user[4]</td><td>$user[5]</td><td><a href=\"delElem.php?delElem=$user[0]&obj=produit&bdd=sexe\"><img src=\"../img/delete.png\"></a></td></tr>";
+			}
+			echo "</table>";
+		}
+		fclose($f);
+	?>
+</div>
